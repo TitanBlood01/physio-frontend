@@ -62,7 +62,7 @@ function ServiceDetailView() {
   useEffect(() => {
     const fetchServiceDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/services/${id}`);
+        const response = await axios.get(`https://physio-backend-1l1v.onrender.com/api/services/${id}`);
         setService(response.data);
       } catch (error) {
         console.error("Error al obtener el servicio:", error);

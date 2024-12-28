@@ -128,7 +128,7 @@ const CreateBlog = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:4000/api/blog", // Asegúrate de que esta URL sea correcta
+                "https://physio-backend-1l1v.onrender.com/api/blog", // Asegúrate de que esta URL sea correcta
                 formData,
                 {
                     headers: {

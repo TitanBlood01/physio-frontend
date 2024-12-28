@@ -22,7 +22,7 @@ const CreateUserForm = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:4000/api/user", // Cambia la URL si es necesario
+                "https://physio-backend-1l1v.onrender.com/api/user", // Cambia la URL si es necesario
                 formData,
                 {
                     headers: {

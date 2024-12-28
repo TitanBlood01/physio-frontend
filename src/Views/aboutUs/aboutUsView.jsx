@@ -12,7 +12,7 @@ const AboutUsView = () => {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/team"); // Asegúrate de que el endpoint esté configurado correctamente
+        const response = await axios.get("https://physio-backend-1l1v.onrender.com/api/team"); // Asegúrate de que el endpoint esté configurado correctamente
         setTeamMembers(response.data);
       } catch (error) {
         console.error("Error al obtener los miembros del equipo:", error);

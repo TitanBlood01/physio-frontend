@@ -130,7 +130,7 @@ function BlogsView() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/blog"); // URL de tu API para obtener los blogs
+        const response = await fetch("https://physio-backend-1l1v.onrender.com/api/blog"); // URL de tu API para obtener los blogs
         if (!response.ok) {
           throw new Error("Error al obtener los blogs");
         }

@@ -101,8 +101,8 @@ const LoginForm = () => {
 
     try {
       const endpoint = isSuperAdmin
-        ? "http://localhost:4000/api/auth/superadmin/signin"
-        : "http://localhost:4000/api/auth/signin";
+        ? "https://physio-backend-1l1v.onrender.com/api/auth/superadmin/signin"
+        : "https://physio-backend-1l1v.onrender.com/api/auth/signin";
 
       const payload = isSuperAdmin
         ? { secretKey, password }

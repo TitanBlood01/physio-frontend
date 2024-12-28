@@ -11,7 +11,7 @@ const TeamMemberDetailView = () => {
     useEffect(() => {
         const fetchMemberDetail = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/team/${id}`);
+                const response = await axios.get(`https://physio-backend-1l1v.onrender.com/api/team/${id}`);
                 setMember(response.data.memberTeam);
             } catch (error) {
                 console.error("Error al obtener el miembro del equipo:", error);
