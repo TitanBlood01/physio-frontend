@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { homeCarouselImages } from "../assets/images.js";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { homeText } from "../utilities/texts.js";
 
 
 const HomeDiv = styled.div`
@@ -24,12 +25,12 @@ const FirstSection = styled.div`
   padding: 20px;
   position: relative;
   flex-direction: row;
-  overflow:hidden;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     /* Ajuste para pantallas medianas como laptops de 15 pulgadas */
     flex-direction: row;
-    padding: 10px;
+    padding: 20px;
   }
 
   @media (max-width: 768px) {
@@ -50,6 +51,7 @@ const LeftColumn = styled.div`
   @media (max-width: 768px) {
     width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
     margin-bottom: 20px; /* Espacio inferior para separar la imagen del texto */
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -64,9 +66,9 @@ const ImageContainer = styled.div`
   }
 
   @media (max-width: 1024px) {
-    width:80%;
-    max-width: 800px; /* Ajusta el ancho máximo en pantallas medianas */
-    height: 500px; /* Reduce la altura en pantallas medianas */
+    width: 80%;
+    max-width: 750px; /* Ajusta el ancho máximo en pantallas medianas */
+    height: 650px; /* Reduce la altura en pantallas medianas */
   }  
 `;
 
@@ -78,9 +80,10 @@ const RightColumn = styled.div`
 
   @media (max-width: 1024px) {
     flex: 40%; /* Aumenta el tamaño para pantallas medianas */
+    padding-right: 20px; /* Agrega más espacio al lado derecho del texto */
   }
 
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
     width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
   }
 `;
@@ -91,6 +94,10 @@ const TextContainer = styled.div`
   color: #fff;
   padding: 20px;
   border-radius: 8px;
+
+  @media (max-width: 1024px) {
+    padding: 20px 40px; /* Agrega más padding al texto en pantallas medianas */
+  }
 `;
 
 // Segunda sección: Cita con fondo azul oscuro
@@ -167,48 +174,48 @@ function HomeView() {
 
   return (
     <HomeDiv>
-      {/* Primera sección */}
-      <FirstSection>
-        <LeftColumn>
-          <ImageContainer>
-            <Slider {...settings}>
-              {homeCarouselImages.map((image, index) => (
-                <div key={index}>
-                  <img src={image.src} alt={image.alt} />
-                </div>
-              ))}
-            </Slider>
-          </ImageContainer>
-        </LeftColumn>
-        <RightColumn>
-          <TextContainer>
-            <h2>Bienvenido a Physio Active tu Centro de Fisioterapia y Kinesiologia</h2>
-            <p>Nos especializamos en la medicina deportiva con una amplia experiencia en tratamiento de lesiones
-              deportivas, rehablitacion muscular....</p>
-            <h2>¿Como podemos ayudarte?</h2>
-            <p>Nos especializamos en la medicina deportiva con una amplia experiencia en tratamiento de lesiones
-              deportivas, rehablitacion muscular....</p>
-          </TextContainer>
-        </RightColumn>
-      </FirstSection>
+    {/* Primera sección */}
+    <FirstSection>
+      <LeftColumn>
+        <ImageContainer>
+          <Slider {...settings}>
+            {homeCarouselImages.map((image, index) => (
+              <div key={index}>
+                <img src={image.src} alt={image.alt} />
+              </div>
+            ))}
+          </Slider>
+        </ImageContainer>
+      </LeftColumn>
+      <RightColumn>
+        <TextContainer>
+          <h2>{homeText.welcomeTitle}</h2>
+          <p>{homeText.welcomeText}</p>
+          <h2>{homeText.helpTitle}</h2>
+          <p>{homeText.helpText}</p>
+          <p>{homeText.helpText2}</p>
+          <p>{homeText.helpText3}</p>
+        </TextContainer>
+      </RightColumn>
+    </FirstSection>
 
-      {/* Segunda sección */}
-      <QuoteSection>
-        <h2>Algunos testimonios de pacientes que ya vinieron</h2>
-        <QuoteContainer>
-          <QuoteRow>
-            <Column>
-              <QuoteText>"Precioso lugar la atencion es muy buena y el ambiente fantastico."</QuoteText>
-              <Author>- Daniela Blanco</Author>
-            </Column>
-            <Column>
-              <QuoteText>"Jamas me senti mas cuidado en mi vida."</QuoteText>
-              <Author>- Gonzalo Cobo</Author>
-            </Column>
-          </QuoteRow>
-        </QuoteContainer>
-      </QuoteSection>
-    </HomeDiv>
+    {/* Segunda sección */}
+    <QuoteSection>
+      <h2>{homeText.testimonialsTitle}</h2>
+      <QuoteContainer>
+        <QuoteRow>
+          <Column>
+            <QuoteText>{homeText.testimonial1}</QuoteText>
+            <Author>{homeText.author1}</Author>
+          </Column>
+          <Column>
+            <QuoteText>{homeText.testimonial2}</QuoteText>
+            <Author>{homeText.author2}</Author>
+          </Column>
+        </QuoteRow>
+      </QuoteContainer>
+    </QuoteSection>
+  </HomeDiv>
   );
 }
 

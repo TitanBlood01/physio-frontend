@@ -7,6 +7,8 @@ import RoutesConfig from './routes/routesConfig';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <RoutesConfig />
         <Footer />
       </Router>
+      <ToastContainer /> {/* ToastContainer aquí */}
     </ThemeProvider>
   );
 }

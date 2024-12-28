@@ -1,12 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import fb from "../assets/facebook.png";
-import tiktok from "../assets/tiktok.png";
-import linkedin from "../assets/linkedin.png";
-import insta from "../assets/instagram.png";
-import youtube from "../assets/youtube.png";
-//import { DoctorImage } from "../assets/images.js";
-import DoctorImage from "../assets/Doctor.JPG";
+import { DoctorImage, socialMediaIcons } from "../assets/images";
 
 function Footer() {
     return (
@@ -17,19 +11,19 @@ function Footer() {
                         <h4>Nuestras Redes Sociales</h4>
                         <div className="socialmedia">
                             <SocialLink href="https://www.facebook.com/profile.php?id=100009085525842" target="_blank" rel="noopener noreferrer">
-                                <SocialIcon><img src={fb} alt="" /></SocialIcon>
+                                <SocialIcon><img src={socialMediaIcons.facebook} alt="" /></SocialIcon>
                             </SocialLink>
                             <SocialLink href="https://www.instagram.com/physio_active_lpz" target="_blank" rel="noopener noreferrer">
-                                <SocialIcon><img src={insta} alt="" /></SocialIcon>
+                                <SocialIcon><img src={socialMediaIcons.instagram} alt="" /></SocialIcon>
                             </SocialLink>
                             <SocialLink href="https://www.facebook.com/tu_perfil" target="_blank" rel="noopener noreferrer">
-                                <SocialIcon><img src={linkedin} alt="" /></SocialIcon>
+                                <SocialIcon><img src={socialMediaIcons.linkedin} alt="" /></SocialIcon>
                             </SocialLink>
                             <SocialLink href="https://www.tiktok.com/@physioactive1326?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">
-                                <SocialIcon><img src={tiktok} alt="" /></SocialIcon>
+                                <SocialIcon><img src={socialMediaIcons.tiktok} alt="" /></SocialIcon>
                             </SocialLink>
                             <SocialLink href="https://www.facebook.com/tu_perfil" target="_blank" rel="noopener noreferrer">
-                                <SocialIcon><img src={youtube} alt="" /></SocialIcon>
+                                <SocialIcon><img src={socialMediaIcons.youtube} alt="" /></SocialIcon>
                             </SocialLink>
                         </div>
                     </div>

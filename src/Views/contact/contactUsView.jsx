@@ -48,7 +48,7 @@ const ContactUs = () => {
         <InfoRow>
           <PhoneNumber>(+591) 68009250</PhoneNumber>
         </InfoRow>
-        <WhatsAppButton href="https://wa.me/591123456789" target="_blank">
+        <WhatsAppButton href="https://wa.link/se3clc" target="_blank">
           Escríbenos
         </WhatsAppButton>
       </ContactInfo>
@@ -59,13 +59,21 @@ const ContactUs = () => {
           <TextHighlight>Correo Electrónico:</TextHighlight>
           <Email>physioactivefisioterapia@gmail.com</Email>
         </InfoRow>
+        {/* Comentado el formulario por ahora */}
+        {/* 
         <Form>
           <Input type="text" placeholder="Nombre Completo" required />
           <Input type="email" placeholder="Email" required />
           <Input type="tel" placeholder="Celular" required />
           <Textarea placeholder="Mensaje" required></Textarea>
           <SendButton>Mandar Email</SendButton>
-        </Form>
+        </Form> 
+        */}
+
+        {/* Nuevo texto en lugar del formulario */}
+        <MessageText>
+          En Physio Active, nos comprometemos a brindarte la mejor atención y cuidarte con el más alto estándar de calidad. Si tienes alguna duda, pregunta o si deseas más información sobre nuestros servicios, no dudes en contactarnos. Estaremos encantados de atenderte y ayudarte con todo lo que necesites. Puedes comunicarte con nosotros a través de los números telefónicos o por correo electrónico, o incluso enviar un mensaje directo a través de WhatsApp. Nos aseguraremos de responderte lo más pronto posible y ofrecerte la asistencia que mereces.
+        </MessageText>
       </ContactInfo>
     </MainContainer>
   );
@@ -176,4 +184,14 @@ const SendButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+`;
+
+const MessageText = styled.p`
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.6;
+  color: #555;
+  max-width: 800px;
+  padding: 0 20px;
 `;
