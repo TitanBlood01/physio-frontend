@@ -87,6 +87,8 @@ const ToggleLink = styled.p`
   }
 `;
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 const LoginForm = () => {
   const [isSuperAdmin, setIsSuperAdmin] = useState(false);
   const [teamMember, setTeamMember] = useState("");
@@ -101,8 +103,8 @@ const LoginForm = () => {
 
     try {
       const endpoint = isSuperAdmin
-        ? "https://physio-backend-1l1v.onrender.com/api/auth/superadmin/signin"
-        : "https://physio-backend-1l1v.onrender.com/api/auth/signin";
+        ? `${API_URL}/auth/superadmin/signin`
+        : `${API_URL}/auth/signin`;
 
       const payload = isSuperAdmin
         ? { secretKey, password }

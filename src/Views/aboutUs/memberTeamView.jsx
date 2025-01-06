@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 const TeamMemberDetailView = () => {
     const { id } = useParams(); // Obtiene el ID del miembro desde la URL
     const [member, setMember] = useState(null);
@@ -11,7 +13,7 @@ const TeamMemberDetailView = () => {
     useEffect(() => {
         const fetchMemberDetail = async () => {
             try {
-                const response = await axios.get(`https://physio-backend-1l1v.onrender.com/api/team/${id}`);
+                const response = await axios.get(`${API_URL}/team/${id}`);
                 setMember(response.data.memberTeam);
             } catch (error) {
                 console.error("Error al obtener el miembro del equipo:", error);

@@ -54,6 +54,8 @@ const BackButton = styled.button`
   }
 `;
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 function ServiceDetailView() {
   const { id } = useParams(); // Obtiene el id del servicio desde la URL
   const [service, setService] = useState(null);
@@ -62,7 +64,7 @@ function ServiceDetailView() {
   useEffect(() => {
     const fetchServiceDetail = async () => {
       try {
-        const response = await axios.get(`https://physio-backend-1l1v.onrender.com/api/services/${id}`);
+        const response = await axios.get(`${API_URL}/services/${id}`);
         setService(response.data);
       } catch (error) {
         console.error("Error al obtener el servicio:", error);

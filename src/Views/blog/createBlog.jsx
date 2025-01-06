@@ -101,6 +101,8 @@ const BackButton = styled.button`
   }
 `;
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 const CreateBlog = () => {
     const [tituloBlog, setTituloBlog] = useState("");
     const [contenidoBlog, setContenidoBlog] = useState("");
@@ -128,7 +130,7 @@ const CreateBlog = () => {
 
         try {
             const response = await axios.post(
-                "https://physio-backend-1l1v.onrender.com/api/blog", // Asegúrate de que esta URL sea correcta
+                `${API_URL}/blog`, // Asegúrate de que esta URL sea correcta
                 formData,
                 {
                     headers: {

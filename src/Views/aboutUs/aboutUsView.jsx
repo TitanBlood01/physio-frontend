@@ -5,6 +5,8 @@ import { aboutUsTexts } from "../../utilities/texts";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 const AboutUsView = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ const AboutUsView = () => {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const response = await axios.get("https://physio-backend-1l1v.onrender.com/api/team"); // Asegúrate de que el endpoint esté configurado correctamente
+        const response = await axios.get(`${API_URL}/team`); // Asegúrate de que el endpoint esté configurado correctamente
         setTeamMembers(response.data);
       } catch (error) {
         console.error("Error al obtener los miembros del equipo:", error);

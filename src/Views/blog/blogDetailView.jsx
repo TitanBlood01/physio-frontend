@@ -81,6 +81,8 @@ const BackButton = styled.button`
   }
 `;
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 function BlogDetailView() {
   const { blogId } = useParams(); // Obtener el ID del blog desde los parámetros de la URL
   console.log(blogId)
@@ -92,7 +94,7 @@ function BlogDetailView() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`https://physio-backend-1l1v.onrender.com/api/blog/${blogId}`);
+        const response = await fetch(`${API_URL}/blog/${blogId}`);
         if (!response.ok) {
           throw new Error("Error al obtener el blog");
         }

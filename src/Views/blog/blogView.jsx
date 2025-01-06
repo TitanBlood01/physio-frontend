@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 // Contenedor principal de la vista
 const BlogsContainer = styled.div`
   display: flex;
@@ -130,7 +132,7 @@ function BlogsView() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("https://physio-backend-1l1v.onrender.com/api/blog"); // URL de tu API para obtener los blogs
+        const response = await fetch(`${API_URL}/blog`); // URL de tu API para obtener los blogs
         if (!response.ok) {
           throw new Error("Error al obtener los blogs");
         }

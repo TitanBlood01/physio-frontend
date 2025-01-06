@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 const CreateTeamMemberForm = () => {
     const [formData, setFormData] = useState({
         nombre: '',
@@ -58,7 +60,7 @@ const CreateTeamMemberForm = () => {
 
         try {
             const response = await axios.post(
-                "https://physio-backend-1l1v.onrender.com/api/team",
+                `${API_URL}/team`,
                 formDataToSend,
                 {
                     headers: {

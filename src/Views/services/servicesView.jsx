@@ -70,6 +70,8 @@ const SeeMoreButton = styled.button`
   }
 `;
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 function ServicesView() {
   const [services, setServices] = useState([]);
 
@@ -77,7 +79,7 @@ function ServicesView() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("https://physio-backend-1l1v.onrender.com/api/services");
+        const response = await axios.get(`${API_URL}/services`);
         setServices(response.data);
       } catch (error) {
         console.error("Error al obtener los servicios:", error);

@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+const API_URL = process.env.REACT_APP_API_URL; 
+
 const CreateUserForm = () => {
     const [formData, setFormData] = useState({
         carnetIdentidad: '',
@@ -22,12 +24,12 @@ const CreateUserForm = () => {
 
         try {
             const response = await axios.post(
-                "https://physio-backend-1l1v.onrender.com/api/user", // Cambia la URL si es necesario
+                `${API_URL}/user`, // Cambia la URL si es necesario
                 formData,
                 {
                     headers: {
                         "Content-Type": "application/json",
-                        "x-access-token": localStorage.getItem("token"), // Si tienes token de autenticación
+                        "x-access-token": localStorage.getItem("token"), // Si se tiene token de autenticación
                     }
                 }
             );
