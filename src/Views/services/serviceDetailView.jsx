@@ -9,7 +9,51 @@ const Container = styled.div`
   padding: 20px;
   text-align: center;
   margin-top: 60px;
+
+  @media (max-width: 768px) {
+    padding: 16px; /* Espaciado interno para dispositivos móviles */
+  }
 `;
+
+// Contenedor para la disposición del contenido
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row; /* Diseño en fila por defecto */
+  padding: 20px;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Cambia a columnas en pantallas pequeñas */
+    align-items: center; /* Centra los elementos en pantallas pequeñas */
+  }
+`;
+
+// Contenedor para centrar la imagen y mantener un tamaño uniforme
+const ImageContainer = styled.div`
+  width: 50%; /* Ocupa el ancho del contenedor principal */
+  height: 450px; /* Altura uniforme para todas las imágenes */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinea hacia arriba */
+  overflow: hidden; /* Oculta partes de la imagen que sobresalgan */
+  margin-bottom: 20px;
+  border-radius: 8px; /* Opcional: bordes redondeados */
+
+  @media (max-width: 768px) {
+    width: 100%; /* Imagen ocupa todo el ancho en dispositivos móviles */
+    height: 300px; /* Ajusta la altura en dispositivos pequeños */
+    margin: 0 auto 20px; /* Centra la imagen y agrega margen inferior */
+  }
+`;
+
+// Estilo para la imagen
+const StyledImage = styled.img`
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+  height: 100%; /* Asegura que la imagen ocupe todo el alto */
+  object-fit: cover; /* Recorta las imágenes para llenar el contenedor */
+  object-position: top; /* Muestra la parte superior para imágenes verticales */
+`;
+
 
 // Estilo para el texto que resalta la invitación para reservar cita
 const HighlightText = styled.p`
@@ -54,7 +98,18 @@ const BackButton = styled.button`
   }
 `;
 
-const API_URL = process.env.REACT_APP_API_URL; 
+// Contenedor para el texto
+const TextContainer = styled.div`
+  flex: 1;
+  margin-left: 20px;
+
+  @media (max-width: 768px) {
+    margin-left: 0; /* Elimina margen lateral en dispositivos móviles */
+    text-align: center; /* Centra el texto en pantallas pequeñas */
+  }
+`;
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ServiceDetailView() {
   const { id } = useParams(); // Obtiene el id del servicio desde la URL
@@ -80,25 +135,32 @@ function ServiceDetailView() {
 
   return (
     <Container>
-      <div style={{ display: "flex", flexDirection: "row", padding: "20px" }}>
-        <div style={{ flex: 1 }}>
-          <img src={service.imageService} alt={service.tituloService} style={{ width: "100%", height: "300px", objectFit: "cover" }} />
-        </div>
-        <div style={{ flex: 1, marginLeft: "20px" }}>
+      <ContentWrapper>
+        <ImageContainer>
+          <StyledImage
+            src={service.imageService}
+            alt={service.tituloService}
+          />
+        </ImageContainer>
+        <TextContainer>
           <h2>{service.tituloService}</h2>
           <p>{service.descriptionService}</p>
-        </div>
-      </div>
+        </TextContainer>
+      </ContentWrapper>
       {/* Texto invitando a reservar una cita */}
       <div style={{ marginTop: "30px", textAlign: "center" }}>
-        <HighlightText>¿Estás interesado en reservar una cita para este servicio?</HighlightText>
+        <HighlightText>
+          ¿Estás interesado en reservar una cita para este servicio?
+        </HighlightText>
         <Link to="/contactUs">
           <ContactButton>Contáctanos</ContactButton>
         </Link>
       </div>
       {/* Botón para ir hacia atrás a la vista de servicios */}
       <div style={{ marginTop: "20px", textAlign: "center" }}>
-        <BackButton onClick={() => navigate("/servicios")}>Volver a Servicios</BackButton>
+        <BackButton onClick={() => navigate("/servicios")}>
+          Volver a Servicios
+        </BackButton>
       </div>
     </Container>
   );

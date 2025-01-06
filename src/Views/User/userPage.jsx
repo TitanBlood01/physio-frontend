@@ -60,7 +60,7 @@ const UserPage = () => {
     <Container>
       <Title>Página de Usuario</Title>
       <WelcomeMessage>Bienvenido Usuario Fisioterapia</WelcomeMessage>
-      <Button onClick={() => navigate("/create-blog")}>Escribir Blog</Button>
+      <Button onClick={() => navigate("/blog-management")}>Blogs</Button>
       <Button onClick={handleLogout}>Cerrar sesión</Button> {/* Botón de Cerrar sesión */}
     </Container>
   );

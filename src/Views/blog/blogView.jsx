@@ -13,6 +13,8 @@ const BlogsContainer = styled.div`
   width: 100%;
   padding: 20px;
   background-color: ${({ theme }) => theme.colors.backgroundColor};
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 `;
 
 // Contenedor del botón de inicio de sesión
@@ -53,13 +55,15 @@ const Subtitle = styled.p`
   text-align: center;
 `;
 
-// Contenedor para los blogs
 const BlogsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Máximo 5 por fila */
   gap: 20px;
-  width: 80%;
-  overflow: hidden; /* Esconde el desbordamiento */
+  width: 100%; /* Ocupar todo el ancho disponible */
+  max-width: 100%; /* Asegura que no haya desbordamiento horizontal */
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  overflow-y: auto; /* Permite desplazamiento vertical si es necesario */
+  padding: 0 10px; /* Agrega algo de espacio a los lados sin que cause desbordamiento */
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(4, 1fr); /* Máximo 4 por fila */
@@ -75,7 +79,7 @@ const BlogsGrid = styled.div`
     gap: 10px; /* Espaciado entre los blogs */
     width: 100%;
     overflow-y: auto; /* Desplazamiento vertical */
-    max-height: 90vh; /* Ajuste de la altura máxima para móviles */
+    max-height: 90vh; /* Ajuste de la altura para móviles */
   }
 `;
 
@@ -102,6 +106,7 @@ const BlogImage = styled.img`
   width: 100%;
   height: 150px;
   object-fit: cover;
+  object-position: 50% 0%;
   border-radius: 8px 8px 0 0;
 `;
 

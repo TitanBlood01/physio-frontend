@@ -43,6 +43,10 @@ const CreateUserForm = () => {
         }
     };
 
+    const handleGoBack = () => {
+        navigate(-1); // Esto navegará hacia la página anterior en el historial
+    };
+
     return (
         <FormContainer>
             <FormTitle>Crear Nuevo Usuario</FormTitle>
@@ -84,6 +88,7 @@ const CreateUserForm = () => {
                 </InputField>
 
                 <SubmitButton type="submit">Crear Usuario</SubmitButton>
+                <BackButton onClick={handleGoBack}>Volver</BackButton>
             </Form>
         </FormContainer>
     );
@@ -93,12 +98,14 @@ const CreateUserForm = () => {
 
 const FormContainer = styled.div`
     width: 100%;
-    max-width: 500px;
+    max-width: 500px; /* Limita el ancho máximo */
     margin: 20px auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+    overflow-x: hidden; /* Previene desplazamiento horizontal */
 `;
 
 const FormTitle = styled.h2`
@@ -109,6 +116,7 @@ const FormTitle = styled.h2`
 const Form = styled.form`
     display: flex;
     flex-direction: column;
+    gap: 15px; /* Agrega espacio entre los campos */
 `;
 
 const InputField = styled.div`
@@ -143,9 +151,29 @@ const SubmitButton = styled.button`
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    width: 100%; /* Hace que el botón ocupe el ancho completo */
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
     transition: background-color 0.3s;
     &:hover {
         background-color: #218838;
+    }
+`;
+
+const BackButton = styled.button`
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+
+    &:hover {
+        background-color: #e53935;
     }
 `;
 

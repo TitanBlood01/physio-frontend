@@ -45,7 +45,7 @@ const ServiceImage = styled.img`
   width: 100%;
   height: 400px;
   object-fit: cover;
-  object-position: 0% 15%;
+  object-position: 50% 15%;
   border-radius: 4px;
 `;
 
@@ -70,7 +70,7 @@ const SeeMoreButton = styled.button`
   }
 `;
 
-const API_URL = process.env.REACT_APP_API_URL; 
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ServicesView() {
   const [services, setServices] = useState([]);
@@ -92,18 +92,18 @@ function ServicesView() {
   return (
     <ServicesContainer>
       <Title>Servicios Ofrecidos</Title>
-      <ServicesGrid>
-        {services.map((service) => (
-          <ServiceCard key={service._id}>
-            <ServiceImage src={service.imageService} alt={service.tituloService} />
-            <h3>{service.tituloService}</h3>
-            <ServiceDescription>{service.descriptionService}</ServiceDescription>
-            <Link to={`/servicios/${service._id}`}>
-              <SeeMoreButton>Ver más</SeeMoreButton>
-            </Link>
-          </ServiceCard>
-        ))}
-      </ServicesGrid>
+        <ServicesGrid>
+          {services.map((service) => (
+            <ServiceCard key={service._id}>
+              <ServiceImage src={service.imageService} alt={service.tituloService} />
+              <h3>{service.tituloService}</h3>
+              <ServiceDescription>{service.descriptionService}</ServiceDescription>
+              <Link to={`/servicios/${service._id}`}>
+                <SeeMoreButton>Ver más</SeeMoreButton>
+              </Link>
+            </ServiceCard>
+          ))}
+        </ServicesGrid>
     </ServicesContainer>
   );
 }

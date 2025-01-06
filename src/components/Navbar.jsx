@@ -9,6 +9,14 @@ function Navbar() {
   const handleClick = () => {
     setClicked(!clicked);
   };
+
+  const closeMenu = () => {
+    // Solo cerrar el menú en dispositivos móviles
+    if (window.innerWidth < 768) {
+      setClicked(false);
+    }
+  };
+
   return (
     <HeaderContainer>
       <LogoContainer>
@@ -21,11 +29,11 @@ function Navbar() {
       </LogoContainer>
       <NavContainer>
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <Link to="/">Inicio</Link>
-          <Link to="/servicios">Servicios</Link>
-          <Link to="/aboutUs">Sobre Nosotros</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contactUs">Contacto</Link>
+          <Link to="/" onClick={closeMenu}>Inicio</Link>
+          <Link to="/servicios" onClick={closeMenu}>Servicios</Link>
+          <Link to="/aboutUs" onClick={closeMenu}>Sobre Nosotros</Link>
+          <Link to="/blog" onClick={closeMenu}>Blog</Link>
+          <Link to="/contactUs" onClick={closeMenu}>Contacto</Link>
         </div>
         <div className="burguer">
           <BurguerButton clicked={clicked} handleClick={handleClick} />

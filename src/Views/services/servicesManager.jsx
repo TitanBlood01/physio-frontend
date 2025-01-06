@@ -26,9 +26,12 @@ const WelcomeMessage = styled.p`
 
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 15px;
   flex-direction: column;
+  gap: 20px;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 20px;
 `;
 
 const Button = styled.button`
@@ -36,45 +39,51 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 15px 30px;
   cursor: pointer;
-  font-size: 1rem;
-  width: 200px;
+  font-size: 1.2rem;
+  width: 100%; 
 
   &:hover {
     background-color: #365b28;
   }
 `;
 
-const AdminPage = () => {
+const GoBackButton = styled(Button)`
+  background-color: #c14e3f; 
+  
+  &:hover {
+    background-color: #a03c2f;
+  }
+`;
+
+const ServiceManagementPage = () => {
   const role = localStorage.getItem("role");
   const navigate = useNavigate();
 
   if (role !== "admin" && role !== "superAdmin") {
-    navigate("/login"); // Redirigir si no es admin ni superadmin
+    navigate("/login");
   }
 
   const handleLogout = () => {
-    // Eliminar el token y el nombre del usuario
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("userId");
-    navigate("/blog"); // Redirigir a la vista de blogs después de cerrar sesión
+    navigate("/blog");
   };
 
   return (
     <Container>
-      <Title>Página de Administración</Title>
-      <WelcomeMessage>Bienvenido Adolfo</WelcomeMessage>
+      <Title>Gestión de Servicios</Title>
+      <WelcomeMessage>Bienvenido a la gestión de servicios</WelcomeMessage>
       <ButtonContainer>
-        <Button onClick={() => navigate("/user-management")}>Usuarios</Button>
-        <Button onClick={() => navigate("/blog-management")}>Blogs</Button>
-        <Button onClick={() => navigate("/service-management")}>Servicios</Button>
-        <Button onClick={() => navigate("/team-management")}>Equipo</Button>
-        <Button onClick={handleLogout}>Cerrar sesión</Button> {/* Botón de Cerrar sesión */}
+        <Button onClick={() => navigate("/create-service")}>Crear Nuevo Servicio</Button>
+        <Button onClick={() => navigate("/all-services")}>Modificar Servicio</Button>
+        <Button onClick={handleLogout}>Cerrar sesión</Button>
+        <GoBackButton onClick={() => navigate(-1)}>Volver atrás</GoBackButton>
       </ButtonContainer>
     </Container>
   );
 };
 
-export default AdminPage;
+export default ServiceManagementPage;

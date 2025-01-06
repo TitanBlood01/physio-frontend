@@ -10,8 +10,11 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
   background-color: ${({ theme }) => theme.colors.backgroundColor};
   font-family: 'Arial', sans-serif;
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
 `;
 
 const Title = styled.h2`
@@ -30,12 +33,13 @@ const Form = styled.form`
   align-items: center;
   gap: 15px;
   margin-top: 20px;
-  width: 100%;
-  max-width: 350px; /* Asegura que el formulario no se expanda más allá de este tamaño */
+  width: 100%; /* Asegura que el formulario ocupe todo el ancho disponible */
+  max-width: 350px; /* El tamaño máximo del formulario */
   padding: 20px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
 `;
 
 const FormGroup = styled.div`

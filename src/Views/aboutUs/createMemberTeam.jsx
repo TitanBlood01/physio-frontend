@@ -71,7 +71,7 @@ const CreateTeamMemberForm = () => {
             );
             if (response.data) {
                 alert("Miembro del equipo creado exitosamente");
-                navigate("/admin");  // Redirige al administrador después de crear el miembro
+                navigate("/admin");
             }
         } catch (err) {
             setError("Hubo un problema al crear al miembro del equipo.");
@@ -80,7 +80,7 @@ const CreateTeamMemberForm = () => {
     };
 
     const handleGoBack = () => {
-        navigate(-1);  // Regresa a la página anterior
+        navigate(-1);
     };
 
     return (
@@ -208,13 +208,14 @@ const CreateTeamMemberForm = () => {
 
 // Styled Components
 const FormContainer = styled.div`
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
+    width: 90%;              /* El contenedor ocupa el 90% del ancho disponible */
+    max-width: 600px;        /* Pero no excede los 600px de ancho */
+    margin: 20px auto;       /* Centra el contenedor */
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 `;
 
 const FormTitle = styled.h2`
@@ -229,6 +230,7 @@ const Form = styled.form`
 
 const InputField = styled.div`
     margin-bottom: 15px;
+    width: 100%;
 `;
 
 const Label = styled.label`
@@ -312,6 +314,18 @@ const ErrorMessage = styled.p`
     color: #e74c3c;
     text-align: center;
     margin-bottom: 20px;
+`;
+
+// Responsive adjustments
+const media = {
+    mobile: `(max-width: 480px)`,
+};
+
+const FormContainerResponsive = styled(FormContainer)`
+    @media ${media.mobile} {
+        padding: 10px;
+        max-width: 100%;
+    }
 `;
 
 export default CreateTeamMemberForm;

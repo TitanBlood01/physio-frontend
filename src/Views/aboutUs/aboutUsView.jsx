@@ -54,6 +54,20 @@ const AboutUsView = () => {
           ))}
         </ProfilesContainer>
       </TeamSection>
+      <AdditionalInfoContainer>
+        <SectionTitle>Nuestras Instalaciones</SectionTitle>
+        <Paragraph>{aboutUsTexts.facilities}</Paragraph>
+
+        <SectionTitle>Nuestro Enfoque</SectionTitle>
+        <NumberedList>
+          {aboutUsTexts.approach.map((item, index) => (
+            <ListItem key={index}>{item}</ListItem>
+          ))}
+        </NumberedList>
+
+        <SectionTitle>Compromiso con tu salud</SectionTitle>
+        <Paragraph>{aboutUsTexts.commitment}</Paragraph>
+      </AdditionalInfoContainer>
     </MainContainer>
   );
 };
@@ -102,6 +116,21 @@ const ValuesList = styled.ul`
 const ListItem = styled.li`
   font-size: 1rem;
   margin: 8px 0;
+`;
+
+const AdditionalInfoContainer = styled.div`
+  background-color: #253f5a; /* Azul oscuro */
+  color: white;
+  padding: 20px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 30px;
+`;
+
+const NumberedList = styled.ol`
+  padding-left: 20px;
+  margin: 20px 0 10px 0;
 `;
 
 const TeamSection = styled.div`

@@ -1,66 +1,164 @@
+import React, { useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+// Styled Components
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  min-height: 100vh;
 
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+`;
 
-const ComingSoon = () => {
-    const navigate = useNavigate();
+const Title = styled.h2`
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+`;
 
-    const handleGoBack = () => {
-        navigate(-1); // Regresa a la página anterior
-    };
+const Form = styled.form`
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
 
-    return (
-        <Container>
-            <Message>
-                🚧 <strong>¡Muy pronto!</strong> 🚧
-            </Message>
-            <Description>
-                Estamos trabajando en esta funcionalidad para ofrecerte la mejor experiencia. 
-                Por favor, vuelve más tarde.
-            </Description>
-            <BackButton onClick={handleGoBack}>Volver atrás</BackButton>
-        </Container>
-    );
+const Input = styled.input`
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+`;
+
+const TextArea = styled.textarea`
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+`;
+
+const Button = styled.button`
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #45a049;
+  }
+`;
+
+const BackButton = styled(Button)`
+  background-color: #f44336;
+
+  &:hover {
+    background-color: #e53935;
+  }
+`;
+
+const API_URL = process.env.REACT_APP_API_URL;
+
+const ServiceCreate = () => {
+  const [formData, setFormData] = useState({
+    tituloService: "",
+    infoService: "",
+    descriptionService: "",
+    imageService: null,
+  });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleFileChange = (e) => {
+    setFormData((prevData) => ({ ...prevData, imageService: e.target.files[0] }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    const serviceData = new FormData();
+    serviceData.append("tituloService", formData.tituloService);
+    serviceData.append("infoService", formData.infoService);
+    serviceData.append("descriptionService", formData.descriptionService);
+
+    if (formData.imageService) {
+      serviceData.append("imageService", formData.imageService);
+    }
+
+    try {
+      const response = await axios.post(`${API_URL}/services`, serviceData, {
+        headers: {
+            "x-access-token": localStorage.getItem("token"),
+            "Content-Type": "multipart/form-data",
+        },
+      });
+
+      alert("Servicio creado exitosamente");
+      navigate("/service-management"); // Ruta a la lista de servicios
+    } catch (error) {
+      console.error("Error al crear el servicio:", error);
+      setError("No se pudo crear el servicio. Intente de nuevo.");
+    }
+  };
+
+  return (
+    <Container>
+      <Title>Crear Nuevo Servicio</Title>
+      <Form onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          name="tituloService"
+          placeholder="Título del Servicio"
+          value={formData.tituloService}
+          onChange={handleChange}
+          required
+        />
+        <TextArea
+          name="infoService"
+          placeholder="Información del Servicio"
+          value={formData.infoService}
+          onChange={handleChange}
+          required
+        />
+        <TextArea
+          name="descriptionService"
+          placeholder="Descripción Detallada"
+          value={formData.descriptionService}
+          onChange={handleChange}
+          required
+        />
+        <Input
+          type="file"
+          name="imageService"
+          accept="image/*"
+          onChange={handleFileChange}
+        />
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <Button type="submit">Crear Servicio</Button>
+      <BackButton type="button" onClick={() => navigate(-1)}>
+        Volver Atrás
+      </BackButton>
+      </Form>
+    </Container>
+  );
 };
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    background-color: #f3f4f6;
-    color: #333;
-`;
-
-const Message = styled.h1`
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #ff6b6b;
-`;
-
-const Description = styled.p`
-    font-size: 1.2rem;
-    color: #555;
-    max-width: 600px;
-`;
-
-const BackButton = styled.button`
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #28a745;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-        background-color:rgb(45, 194, 80);
-    }
-`;
-
-export default ComingSoon;
+export default ServiceCreate;

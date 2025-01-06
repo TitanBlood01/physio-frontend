@@ -19,6 +19,13 @@ export const aboutUsTexts = {
             así como con el cumplimiento de la legislación aplicable a los principios, protocolos y estándares de salud`,
     ],
     teamTitle: "Conozca al equipo",
+    facilities: `Physio Active cuenta con modernas instalaciones diseñadas para ofrecer un ambiente cómodo y relajante. Disponemos de áreas adecuadas para los diferentes tratamientos, así como un gimnasio equipado con máquinas para rehabilitación y entrenamiento funcional. Queremos que tu experiencia sea placentera y motivadora, para que disfrutes del proceso de recuperación.`,
+    approach: [
+        `Evaluación Integral: Nos tomamos el tiempo necesario para conocer tus necesidades, realizar un diagnóstico preciso y establecer objetivos claros.`,
+        `Tratamiento Personalizado: Diseñamos un plan de tratamiento a medida, con técnicas avanzadas y protocolos actualizados.`,
+        `Educación y Prevención: Te proporcionamos herramientas y conocimientos para cuidar tu cuerpo y prevenir futuras lesiones.`,
+    ],
+    commitment: `En Physio Active, estamos comprometidos con tu bienestar. No solo queremos que te recuperes de una lesión, sino que alcances un estado óptimo de salud física y mental. Trabajamos contigo en cada paso del camino para garantizar que obtengas resultados sostenibles y duraderos.`
 };
 
 
@@ -39,9 +46,21 @@ export const homeText = {
     helpText3: `Estamos emocionados de tener la oportunidad de trabajar contigo y ayudarte a alcanzar tus objetivos de salud y bienestar.
     No dudes en contactarnos para programar una cita`,
     testimonialsTitle: "Algunos testimonios de pacientes que ya vinieron",
-    testimonial1: '"Precioso lugar la atención es muy buena y el ambiente fantástico."',
-    testimonial2: '"Jamas me senti mas cuidado en mi vida."',
-    author1: "- Daniela Blanco",
-    author2: "- Gonzalo Cobo",
+    testimonial1: '"Un gran equipo de profesionales en la recuperacion de lesiones musculares y fracturas felicidades y gracias!"',
+    testimonial2: '"Me derivaron a cirugía pero con el procedimiento del DR mi recuperacion ha sido excelente. Gracias!"',
+    testimonial3: '"El #1 de Bolivia."',
+    testimonial4: '"Profesionales con corazón muy humanitario."',
+    testimonial5: '"Muy buena Atencion! Realmente muy capaces para atender cualquier problema!! Y ni que decir para la recuperacion de atletas!"',
+    testimonial6: '"Recomendada para deportistas de alto rendimiento"',
+    author1: "- Daniela Aranibar",
+    author2: "- Rosalia Choque",
+    author3: "- Juan Mario Guevara",
+    author4: "- Martha Careaga",
+    author5: "- Yaqui Falcon",
+    author6: "- Gael Llano",
+    secondSectionTitle: "ESTAMOS NOMINADOS!",
+    secondSectionText: `Physio Active fué nominado a los Premios Estrella de la salud cómo centro de innovación y tratamiento en medicina física, fisioterapia y rehabilitación. Esta designación  nos sitúa y nos destaca  como un servicio de excelencia ,fomentando además  la confianza en los pacientes y haciendo notar aun más nuestra predisposición a colaborar siempre en momentos difíciles.
+    Gracias a DIOS por regalarnos  tantas bendiciones y oportunidades.
+    Gracias al equipo del colegio medico y a los organizadores de esta prestigiosa  premiacion por esta mención.`
 };
 

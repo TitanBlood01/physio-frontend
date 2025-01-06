@@ -21,3 +21,9 @@ export const socialMediaIcons = {
     tiktok: "https://res.cloudinary.com/djnufglwv/image/upload/v1735330250/tiktok_qks6fn.png",
     youtube: "https://res.cloudinary.com/djnufglwv/image/upload/v1735330247/youtube_km8yma.png"
 }
+
+export const homeImagesSection2 = {
+    imagen1: "https://res.cloudinary.com/djnufglwv/image/upload/v1736137387/frontend-images/u9ajyogmnamtxnzkdm0u.jpg",
+    imagen2: "https://res.cloudinary.com/djnufglwv/image/upload/v1736137387/frontend-images/is08sbaflx6l556q7f3o.jpg",
+    //añadir mas luego
+};
