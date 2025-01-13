@@ -122,8 +122,10 @@ const LoginForm = () => {
       localStorage.setItem("role", role);
 
       if (role === "superAdmin" || role === "admin") {
+        alert("Se inicio sesion como admin");
         navigate("/admin");
       } else if (role === "user") {
+        alert("Se inicio sesion como user");
         navigate("/user");
       }
     } catch (err) {

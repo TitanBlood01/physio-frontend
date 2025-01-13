@@ -140,7 +140,7 @@ const BlogList = () => {
           ))}
         </tbody>
       </BlogTable>
-      <BackButton type="button" onClick={() => navigate(-1)}>
+      <BackButton type="button" onClick={() => navigate("/blog-management")}>
         Volver Atrás
       </BackButton>
     </Container>

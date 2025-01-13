@@ -149,11 +149,17 @@ const BlogModify = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const formData = new FormData();
     formData.append("contenidoBlog", blog.contenidoBlog);
+    
+    // Agregar las imágenes nuevas al FormData
     newImages.forEach((image) => formData.append("imagenesBlog", image));
-
+  
+    // Enviar 'keepImages' para indicar si se deben conservar las imágenes antiguas
+    formData.append("keepImages", newImages.length === 0 ? "true" : "false");
+  
+    alert("Se está actualizando el blog...espere a la respuesta");
     axios
       .put(`${API_URL}/blog/${id}`, formData, {
         headers: {
@@ -170,6 +176,8 @@ const BlogModify = () => {
         alert("Error al actualizar el blog");
       });
   };
+  
+  
 
   if (!blog) return <p>Cargando...</p>;
 
@@ -213,7 +221,7 @@ const BlogModify = () => {
         </div>
         <Button type="submit">Actualizar Blog</Button>
       </Form>
-      <BackButton type="button" onClick={() => navigate(-1)}>
+      <BackButton type="button" onClick={() => navigate("/blog-management")}>
         Volver Atrás
       </BackButton>
     </Container>

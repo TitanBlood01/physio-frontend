@@ -61,6 +61,14 @@ export const homeText = {
     secondSectionTitle: "ESTAMOS NOMINADOS!",
     secondSectionText: `Physio Active fué nominado a los Premios Estrella de la salud cómo centro de innovación y tratamiento en medicina física, fisioterapia y rehabilitación. Esta designación  nos sitúa y nos destaca  como un servicio de excelencia ,fomentando además  la confianza en los pacientes y haciendo notar aun más nuestra predisposición a colaborar siempre en momentos difíciles.
     Gracias a DIOS por regalarnos  tantas bendiciones y oportunidades.
-    Gracias al equipo del colegio medico y a los organizadores de esta prestigiosa  premiacion por esta mención.`
+    Gracias al equipo del colegio medico y a los organizadores de esta prestigiosa  premiacion por esta mención.`,
+    secondSectionText2: `Physio Active te invita a ver mas acerca de los premios y votar por nosotros entrando o pulsando sobre los siguientes links 👇:`,
+    votationLinks: [
+        { text: "Pulsa Aqui!", url: "https://www.facebook.com/share/p/18H55eQkXt/" },
+        { text: "Pulsa Aqui!", url: "https://www.facebook.com/share/p/167oVK9bwf/" },
+        { text: "Pulsa Aqui!", url: "https://www.facebook.com/share/v/158caXeLxh/" },
+        { text: "Pulsa Aqui!", url: "https://www.facebook.com/share/p/18nDDR3xaa/" },
+    ],
+    thanksText: `Contamos con tu voto y al mismo tiempo agrademos tu apoyo.`
 };
 

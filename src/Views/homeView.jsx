@@ -265,6 +265,53 @@ const BlogImage = styled.img`
   border-radius: 8px 8px 0 0;
 `;
 
+const LinkList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+
+  li {
+    margin: 10px 0;
+  }
+
+  a {
+    color: #ffffff; /* Cambia al color que prefieras */
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+
+    &:hover {
+      color: rgb(0, 140, 255); /* Efecto hover */
+    }
+  }
+
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    margin: 15px 0;
+
+    li {
+      margin: 8px 0;
+    }
+
+    a {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: 10px 0;
+
+    li {
+      margin: 5px 0;
+    }
+
+    a {
+      font-size: 15px;
+    }
+  }
+`;
+
+
 // HomeView
 function HomeView() {
   const [blogs, setBlogs] = useState([]);
@@ -363,6 +410,17 @@ function HomeView() {
         <TextLeft>
           <h2>{homeText.secondSectionTitle}</h2>
           <p>{homeText.secondSectionText}</p>
+          <p>{homeText.secondSectionText2}</p>
+          <LinkList>
+            {homeText.votationLinks.map((link, index) => (
+              <li key={index}>
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.text}👉🏻{link.url}
+                </a>
+              </li>
+            ))}
+          </LinkList>
+          <p>{homeText.thanksText}</p>
         </TextLeft>
         <ImageRight>
           <ImageStack>

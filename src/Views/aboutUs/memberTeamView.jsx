@@ -3,65 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL; 
-
-const TeamMemberDetailView = () => {
-    const { id } = useParams(); // Obtiene el ID del miembro desde la URL
-    const [member, setMember] = useState(null);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchMemberDetail = async () => {
-            try {
-                const response = await axios.get(`${API_URL}/team/${id}`);
-                setMember(response.data.memberTeam);
-            } catch (error) {
-                console.error("Error al obtener el miembro del equipo:", error);
-            }
-        };
-
-        fetchMemberDetail();
-    }, [id]);
-
-    if (!member) {
-        return <p>Cargando...</p>;
-    }
-
-    return (
-        <Container>
-            <ImageSection>
-                <ProfileImage src={member.fotoPerfil} alt={`${member.nombre} ${member.apellido}`} />
-            </ImageSection>
-            <InfoSection>
-                <Name>
-                    {member.nombre} {member.apellido}
-                </Name>
-                <Position>{member.posicion}</Position>
-                {member.matriculaProf && ( // Renderizar solo si matriculaProf existe
-                    <Matricula>
-                        Matrícula Profesional: {member.matriculaProf}
-                    </Matricula>
-                )}
-                <Experiencia>
-                    <strong>Experiencia:</strong>
-                    {member.experiencia && member.experiencia.length > 0 ? (
-                        <ul>
-                            {member.experiencia.map((exp, index) => (
-                                <li key={index}>{exp}</li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>No especificada</p>
-                    )}
-                </Experiencia>
-                <BackButton onClick={() => navigate("/aboutUs")}>Volver</BackButton>
-            </InfoSection>
-        </Container>
-    );
-};
-
-export default TeamMemberDetailView;
-
 // Estilos
 const Container = styled.div`
   display: flex;
@@ -133,4 +74,63 @@ const BackButton = styled.button`
   align-self: flex-start;
   margin-top: 20px;
 `;
+
+const API_URL = process.env.REACT_APP_API_URL; 
+
+const TeamMemberDetailView = () => {
+    const { id } = useParams(); // Obtiene el ID del miembro desde la URL
+    const [member, setMember] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchMemberDetail = async () => {
+            try {
+                const response = await axios.get(`${API_URL}/team/${id}`);
+                setMember(response.data.memberTeam);
+            } catch (error) {
+                console.error("Error al obtener el miembro del equipo:", error);
+            }
+        };
+
+        fetchMemberDetail();
+    }, [id]);
+
+    if (!member) {
+        return <p>Cargando...</p>;
+    }
+
+    return (
+        <Container>
+            <ImageSection>
+                <ProfileImage src={member.fotoPerfil} alt={`${member.nombre} ${member.apellido}`} />
+            </ImageSection>
+            <InfoSection>
+                <Name>
+                    {member.nombre} {member.apellido}
+                </Name>
+                <Position>{member.posicion}</Position>
+                {member.matriculaProf && ( // Renderizar solo si matriculaProf existe
+                    <Matricula>
+                        Matrícula Profesional: {member.matriculaProf}
+                    </Matricula>
+                )}
+                <Experiencia>
+                    <strong>Experiencia:</strong>
+                    {member.experiencia && member.experiencia.length > 0 ? (
+                        <ul>
+                            {member.experiencia.map((exp, index) => (
+                                <li key={index}>{exp}</li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>No especificada</p>
+                    )}
+                </Experiencia>
+                <BackButton onClick={() => navigate("/aboutUs")}>Volver</BackButton>
+            </InfoSection>
+        </Container>
+    );
+};
+
+export default TeamMemberDetailView;
 
