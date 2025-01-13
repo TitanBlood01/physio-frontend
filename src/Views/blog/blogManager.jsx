@@ -80,7 +80,7 @@ const BlogManager = () => {
         <Button onClick={() => navigate("/create-blog")}>Crear Nuevo Blog</Button>
         <Button onClick={() => navigate("/all-blogs")}>Modificar Blog</Button>
         <Button onClick={handleLogout}>Cerrar sesión</Button>
-        <GoBackButton onClick={() => navigate(-1)}>Volver atrás</GoBackButton>
+        <GoBackButton onClick={() => navigate("/admin")}>Volver atrás</GoBackButton>
       </ButtonContainer>
     </Container>
   );
