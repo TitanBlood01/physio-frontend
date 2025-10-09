@@ -37,7 +37,7 @@ const ContactUs = () => {
         </Marker>
       </MapContainerStyled>
 
-      <LocationText>Nos ubicamos en la Avenida Montenegro<br/>Edificio Spica, piso 5B</LocationText>
+      <LocationText>Nos ubicamos en la Av. Montenegro<br/>Edificio Spica 5B, piso 5</LocationText>
 
       <ContactInfo>
         <InfoRow>

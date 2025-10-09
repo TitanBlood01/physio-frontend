@@ -29,7 +29,7 @@ function Footer() {
                     </div>
                     <div className="sb__footer-links_div">
                         <h4>Ubicanos</h4>
-                        <p>Calle 5 Achumani N°572, edificio Augusto Gamarra, planta baja</p>
+                        <p>Av. Montenegro, edificio Spica, piso 5B</p>
                         <p>720-97577</p>
                         <p>physioactivefisioterapia@gmail.com</p>
                     </div>
