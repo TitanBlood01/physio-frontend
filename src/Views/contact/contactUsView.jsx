@@ -17,8 +17,8 @@ L.Icon.Default.mergeOptions({
   });
 
 const ContactUs = () => {
-  const latitud = -16.53611; // Reemplaza con la latitud de tu entidad
-  const longitud = -68.07909; // Reemplaza con la longitud de tu entidad
+  const latitud = -16.540644; // Reemplaza con la latitud de tu entidad
+  const longitud = -68.079335; // Reemplaza con la longitud de tu entidad
 
   return (
     <MainContainer>
@@ -37,7 +37,7 @@ const ContactUs = () => {
         </Marker>
       </MapContainerStyled>
 
-      <LocationText>Nos ubicamos en la Calle 5 Achumani N° 572 <br/>Edificio Augusto Gamarra, planta baja</LocationText>
+      <LocationText>Nos ubicamos en la Avenida Montenegro<br/>Edificio Spica, piso 5B</LocationText>
 
       <ContactInfo>
         <InfoRow>
