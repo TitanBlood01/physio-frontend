@@ -29,7 +29,7 @@ function Footer() {
                     </div>
                     <div className="sb__footer-links_div">
                         <h4>Ubicanos</h4>
-                        <p>Av. Montenegro, edificio Spica, piso 5B</p>
+                        <p>Av. Montenegro, edificio Spica 5B, piso 5</p>
                         <p>720-97577</p>
                         <p>physioactivefisioterapia@gmail.com</p>
                     </div>
