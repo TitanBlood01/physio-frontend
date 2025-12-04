@@ -1,7 +1,6 @@
 export const homeCarouselImages = [
-    {src: "https://res.cloudinary.com/djnufglwv/image/upload/v1735323222/Inicio2_v2tlya.jpg", alt: 'Imagen 1'},
-    {src: "https://res.cloudinary.com/djnufglwv/image/upload/v1735323221/Inicio3_qgr0tl.jpg", alt: 'Imagen 2'},
-    {src: "https://res.cloudinary.com/djnufglwv/image/upload/v1735323224/Inicio4_cdw1wh.jpg", alt: 'Imagen 3'},
+    {src: "https://res.cloudinary.com/djnufglwv/image/upload/v1764819028/WhatsApp_Image_2025-11-28_at_23.01.30_vdpdm3.jpg", alt: 'Imagen 1'},
+    {src: "https://res.cloudinary.com/djnufglwv/image/upload/v1764819028/WhatsApp_Image_2025-11-28_at_23.01.30_1_qafqok.jpg", alt: 'Imagen 2'},
     //añadir mas luego
 ];
 
